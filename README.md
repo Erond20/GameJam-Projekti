@@ -1,4 +1,4 @@
 Tiimissä on 
-LorikBudeci
-ErondDumani
-Jani
+LorikBudeci -Sound
+ErondDumani - Code
+Jani - Design
