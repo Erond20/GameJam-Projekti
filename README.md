@@ -1,1 +1,4 @@
-# GameJam-Projekti
+Tiimissä on 
+LorikBudeci
+ErondDumani
+Jani
