@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
 {
     public CharacterController controller;
 
+    public Transform player;
+
     public float speed = 12f;
 
     public float jumpHeight = 2.4f;
@@ -46,7 +48,14 @@ public class Movement : MonoBehaviour
             velocity.y = jumpHeight;
 
         }
+        if (Input.GetButtonDown("Crouch")) // Added a new axes called crouch with left shift
+        {
+            speed /= 3;
+            jumpHeight /= 1.5f;
+            transform.localScale *= 0.5f;
 
-      
+        }
+       
+
     }
 }
