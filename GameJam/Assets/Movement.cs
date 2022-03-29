@@ -48,13 +48,9 @@ public class Movement : MonoBehaviour
             velocity.y = jumpHeight;
 
         }
-        if (Input.GetButtonDown("Crouch")) // Added a new axes called crouch with left shift
-        {
-            speed /= 3;
-            jumpHeight /= 1.5f;
-            transform.localScale *= 0.5f;
+      
 
-        }
+        
        
 
     }
