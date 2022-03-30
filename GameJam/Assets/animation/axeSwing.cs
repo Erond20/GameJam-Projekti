@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class axeSwing : MonoBehaviour
+public class AxeSwing : MonoBehaviour
 {
     public GameObject Axe;
     public bool Swinging = false;
