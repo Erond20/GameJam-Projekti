@@ -6,6 +6,9 @@ public class Loadlevel2 : MonoBehaviour
 {
    void OnCollisionEnter(Collision collision)
     {
-        SceneManager.LoadScene("level2");
+        if (collision.gameObject.name == "Player")
+        {
+            SceneManager.LoadScene("level2");
+        }
     }
 }
