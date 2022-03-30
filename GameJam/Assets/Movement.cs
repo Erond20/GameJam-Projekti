@@ -17,6 +17,8 @@ public class Movement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    public SoundEffect footstep;
+    public AudioSource AS;
 
     Vector3 velocity;
     bool isGrounded;
@@ -48,8 +50,13 @@ public class Movement : MonoBehaviour
             velocity.y = jumpHeight;
 
         }
-      
 
+        if (controller.isGrounded == true && move.magnitude > 0.5f && AS.isPlaying == false)
+        {
+            AS.clip = footstep.GetClip();
+            AS.Play();
+        }
+      
         
        
 
