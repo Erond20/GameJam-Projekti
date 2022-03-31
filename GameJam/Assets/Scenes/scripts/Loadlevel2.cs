@@ -4,11 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Loadlevel2 : MonoBehaviour
 {
-   void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name == "Player")
-        {
-            SceneManager.LoadScene("level2");
-        }
+        SceneManager.LoadScene("level2");
     }
 }
