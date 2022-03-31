@@ -6,6 +6,10 @@ public class Loadlevel4 : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collision)
     {
-        SceneManager.LoadScene("level4");
+        if (collision.gameObject.name == "Player")
+        {
+            SceneManager.LoadScene("level4");
+        }
+        
     }
 }
