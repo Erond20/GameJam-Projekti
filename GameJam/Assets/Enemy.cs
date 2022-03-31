@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         }
         if(health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
         if(health > maxHealth)
         {
@@ -54,11 +54,11 @@ public class Enemy : MonoBehaviour
 
         Distance = Vector3.Distance(Player.transform.position, this.transform.position);
 
-        if(Distance <=5)
+        if(Distance <=15)
         {
             isAngered = true;
         }
-        if(Distance > 5f)
+        if(Distance > 15f)
         {
             isAngered = false;
         }
