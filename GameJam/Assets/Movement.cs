@@ -17,8 +17,6 @@ public class Movement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    public SoundEffect footstep;
-    public AudioSource AS;
 
     Vector3 velocity;
     bool isGrounded;
@@ -27,7 +25,7 @@ public class Movement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if(isGrounded && velocity.y<0)
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
@@ -51,14 +49,8 @@ public class Movement : MonoBehaviour
 
         }
 
-        if (controller.isGrounded == true && move.magnitude > 0.5f && AS.isPlaying == false)
-        {
-            AS.clip = footstep.GetClip();
-            AS.Play();
-        }
-      
-        
-       
+
+
 
     }
 }
