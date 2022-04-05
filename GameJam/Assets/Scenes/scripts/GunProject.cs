@@ -80,7 +80,7 @@ public class GunProject : MonoBehaviour
         float x = Random.Range(-spread, spread);
         float y = Random.Range(-spread, spread);
 
-        Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0); // just add spread to last di
+        Vector3 directionWithSpread = directionWithoutSpread; // just add spread to last di
 
 
 
@@ -123,4 +123,5 @@ public class GunProject : MonoBehaviour
         bulletLeft = magazineSize;
         reloading = false;
     }
+    
 }
