@@ -6,7 +6,7 @@ public class shooting : MonoBehaviour
     public float bulletSpeed = 10;
     public Rigidbody bullet;
 
-
+    
     void Fire()
     {
         Rigidbody bulletClone = (Rigidbody)Instantiate(bullet, transform.position, transform.rotation);
