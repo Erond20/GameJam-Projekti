@@ -168,8 +168,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992931048866066884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.06, z: -7.86}
-  m_LocalScale: {x: 0.60225, y: 0.60225, z: 0.60225}
+  m_LocalPosition: {x: -21.7, y: 7.7, z: -258.4}
+  m_LocalScale: {x: 0.98274326, y: 0.98274326, z: 0.98274326}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1992931048362996525}
@@ -211,7 +211,7 @@ MonoBehaviour:
   controller: {fileID: 1992931048866066886}
   player: {fileID: 0}
   speed: 10
-  jumpHeight: 7
+  jumpHeight: 5
   gravity: -9.81
   groundCheck: {fileID: 1992931047507525174}
   groundDistance: 0.4
@@ -483,6 +483,20 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1992931048080562416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994530788353835003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dcc3f34e6c507246ac45e83a713ba0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Axe: {fileID: 1994530788353835003}
+  Swinging: 0
 --- !u!114 &4665861121536168044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,20 +512,6 @@ MonoBehaviour:
   damage: 10
   range: 100
   fpsCam: {fileID: 1992931049212558438}
---- !u!114 &1992931048080562416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994530788353835003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dcc3f34e6c507246ac45e83a713ba0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Axe: {fileID: 1994530788353835003}
-  Swinging: 0
 --- !u!1001 &4665861122289288668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -609,7 +609,7 @@ MonoBehaviour:
   spread: 0
   reloadTime: 1.5
   TimeBetweenShoots: 0
-  magazineSize: 100
+  magazineSize: 50
   bulletsPerTrap: 1
   allowButtonHold: 1
   fpsCam: {fileID: 1992931049212558438}
