@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class shooting : MonoBehaviour
+public class bullet1 : MonoBehaviour
 {
     public float bulletSpeed = 10;
     public Rigidbody bullet;

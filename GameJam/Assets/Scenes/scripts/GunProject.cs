@@ -6,6 +6,7 @@ public class GunProject : MonoBehaviour
     //bullet
     public GameObject bullet;
     //bulletforce
+    public ParticleSystem bulletEffect;
     public float shootforce, upwardForce;
     //GunStats
     public float timeBetweenShooting, spread, reloadTime, TimeBetweenShoots;
@@ -64,6 +65,7 @@ public class GunProject : MonoBehaviour
      
     private void Shoot()
     {
+        bulletEffect.Play();
         readyToShoot = false;
 
         //Find the exact hit position using a raycast
@@ -86,7 +88,7 @@ public class GunProject : MonoBehaviour
 
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
 
-        currentBullet.transform.forward = directionWithSpread.normalized;
+        currentBullet.transform.up = directionWithSpread.normalized;
 
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized *  shootforce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up *  upwardForce, ForceMode.Impulse);
