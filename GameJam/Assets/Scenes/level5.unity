@@ -2491,8 +2491,24 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3183118686376680060, guid: cd947a07d0fe1914cb347c3df484582f, type: 3}
+      propertyPath: state
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183118686376680060, guid: cd947a07d0fe1914cb347c3df484582f, type: 3}
+      propertyPath: RunSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183118686376680060, guid: cd947a07d0fe1914cb347c3df484582f, type: 3}
+      propertyPath: walkSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183118686376680060, guid: cd947a07d0fe1914cb347c3df484582f, type: 3}
       propertyPath: jumpHeight
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3183118686376680060, guid: cd947a07d0fe1914cb347c3df484582f, type: 3}
+      propertyPath: sprintingMultiplier
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd947a07d0fe1914cb347c3df484582f, type: 3}

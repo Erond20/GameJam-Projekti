@@ -10,10 +10,24 @@ public class Movement : MonoBehaviour
 
     public float speed = 12f;
 
+    
+    public float walkSpeed;
+    public float RunSpeed;
     public float jumpHeight = 2.4f;
 
     public float gravity = -9.81f;
+    private float x;
+    private float z;
+    public MoveState state;
+    public enum MoveState
+    {
+        walking,
+        sprinting,
+        air,
+    }
 
+    
+    Vector3 move = new Vector3();
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -21,8 +35,13 @@ public class Movement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
     void Update()
     {
+        StateHandler();
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -30,11 +49,12 @@ public class Movement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+         x = Input.GetAxis("Horizontal");
+         z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
-
+        
+        
+        move = transform.right * x + transform.forward * z  ;
 
         controller.Move(move * speed * Time.deltaTime);
 
@@ -42,15 +62,38 @@ public class Movement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
+
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
 
             velocity.y = jumpHeight;
 
         }
+        
+
+        
+        
+       
 
 
+    }
+    private void StateHandler()
+    {
+        if (controller.isGrounded && Input.GetKey(KeyCode.LeftShift))
+        {
+            state = MoveState.sprinting;
+            speed = RunSpeed;
+            
+        }
+        else if (controller.isGrounded)
+        {
+            state = MoveState.walking;
+            speed = walkSpeed;
 
-
+        }
+        else
+        {
+            state = MoveState.air;
+        }
     }
 }

@@ -213,6 +213,8 @@ MonoBehaviour:
   speed: 10
   jumpHeight: 5
   gravity: -9.81
+  isSprinting: 0
+  sprintingMultiplier: 3
   groundCheck: {fileID: 1992931047507525174}
   groundDistance: 0.4
   groundMask:
