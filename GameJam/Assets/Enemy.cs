@@ -12,7 +12,17 @@ public class Enemy : MonoBehaviour
     public Transform firePoint;
     public GameObject projectile;
     public float timeBetweenAttacks;
+    public float WanderSpeed = 4f;
+    public float chaseSpeed = 7f;
+    private Animator animator;
+    public float enemyCooldown = 1;
+    public float damage = 1;
 
+    private bool playerInRange = false;
+    private bool canAttack = true;
+    private bool Attacking = false;
+
+    private bool isAware = false;
     public float health;
     public float maxHealth;
     public GameObject healthBarUI;
@@ -25,18 +35,38 @@ public class Enemy : MonoBehaviour
     public Transform player;
 
     public bool isAngered;
+    public bool caughtPlayer = false;
 
     public NavMeshAgent _agent;
-    // Start is called before the first frame update
+
+
+    Vector3 playerPosition = Vector3.zero;
+    Vector3 m_playerposition;
     void Start()
     {
+        playerPosition = Vector3.zero;
         health = maxHealth;
         slider.value = calculateHealth();
+        animator = GetComponentInChildren<Animator>();
     }
    
     // Update is called once per frame
     void Update()
     {
+        if (playerInRange && canAttack)
+        {
+            StartCoroutine(AttackCooldown());
+        }
+        if(isAngered)
+        {
+            animator.SetBool("Aware", true);
+            agent.speed = chaseSpeed;
+        }
+        else
+        {
+            animator.SetBool("Aware", false);
+            agent.speed = WanderSpeed;
+        }
         slider.value = calculateHealth();
 
         if(health <maxHealth)
@@ -103,4 +133,29 @@ public class Enemy : MonoBehaviour
     {
         alreadyAttacked = false;
     }
+
+   
+   
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player")) 
+        {
+            playerInRange = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player")) 
+        {
+            playerInRange = false;
+        }
+    }
+    IEnumerator AttackCooldown()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(enemyCooldown);
+        canAttack = true;
+    }
+
 }
