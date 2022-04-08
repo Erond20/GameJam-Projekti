@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    private AudioSource PlayerWalk;
     public CharacterController controller;
 
     public Transform player;
@@ -37,10 +38,12 @@ public class Movement : MonoBehaviour
 
     private void Start()
     {
+        PlayerWalk = GetComponent<AudioSource>();
         controller = GetComponent<CharacterController>();
     }
     void Update()
     {
+        PlayerWalk.Play();
         StateHandler();
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -79,17 +82,17 @@ public class Movement : MonoBehaviour
     }
     private void StateHandler()
     {
-        if (controller.isGrounded && Input.GetKey(KeyCode.LeftShift))
+        if (controller.isGrounded && Input.GetKey(KeyCode.LeftShift ) && PlayerWalk.isPlaying)
         {
             state = MoveState.sprinting;
             speed = RunSpeed;
-            
+            PlayerWalk.Play();
         }
-        else if (controller.isGrounded)
+        else if (controller.isGrounded && PlayerWalk.isPlaying)
         {
             state = MoveState.walking;
             speed = walkSpeed;
-
+            PlayerWalk.Play();
         }
         else
         {

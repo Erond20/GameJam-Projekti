@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 public class GunProject : MonoBehaviour
 {
-
+    private AudioSource ShootAudi;
     //bullet
     public GameObject bullet;
     //bulletforce
@@ -29,7 +29,10 @@ public class GunProject : MonoBehaviour
     //bug fixing;
     public bool AllowInvoke = true;
 
-
+    private void Start()
+    {
+            ShootAudi = GetComponent<AudioSource>();
+    }
     private void Awake()
     {
         //make sure magazine size
@@ -67,7 +70,7 @@ public class GunProject : MonoBehaviour
     {
         bulletEffect.Play();
         readyToShoot = false;
-
+        ShootAudi.Play();
         //Find the exact hit position using a raycast
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
