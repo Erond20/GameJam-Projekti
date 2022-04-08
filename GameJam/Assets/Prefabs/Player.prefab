@@ -5629,7 +5629,7 @@ MonoBehaviour:
   spread: 0
   reloadTime: 1.5
   TimeBetweenShoots: 0
-  magazineSize: 50
+  magazineSize: 35
   bulletsPerTrap: 1
   allowButtonHold: 1
   fpsCam: {fileID: 4763376079434502778}
