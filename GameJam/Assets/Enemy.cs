@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public float maxHealth;
     public GameObject healthBarUI;
     public Slider slider;
+    public float WanderSpeed = 4f;
+    public float chaseSpeed = 7f;
+    private Animator animator;
 
 
     public GameObject Player;
@@ -32,11 +35,23 @@ public class Enemy : MonoBehaviour
     {
         health = maxHealth;
         slider.value = calculateHealth();
+        animator = GetComponentInChildren<Animator>();
     }
    
     // Update is called once per frame
     void Update()
     {
+        if (isAngered)
+        {
+            animator.SetBool("Aware", true);
+            agent.speed = WanderSpeed;
+        }
+        else
+        {
+            animator.SetBool("Aware", false);
+            agent.speed = chaseSpeed;
+        }
+
         slider.value = calculateHealth();
 
         if(health <maxHealth)
