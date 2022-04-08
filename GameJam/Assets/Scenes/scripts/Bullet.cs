@@ -12,7 +12,9 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.GetComponent<Enemy>())
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);
+            Debug.Log("osui");
         }
+        Destroy(this.gameObject);
 
 
     }
