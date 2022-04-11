@@ -31,7 +31,7 @@ public class GunProject : MonoBehaviour
 
     private void Start()
     {
-            ShootAudi = GetComponent<AudioSource>();
+      ShootAudi = GetComponent<AudioSource>();
     }
     private void Awake()
     {
@@ -70,7 +70,8 @@ public class GunProject : MonoBehaviour
     {
         bulletEffect.Play();
         readyToShoot = false;
-        ShootAudi.Play();
+            ShootAudi.Play();
+
         //Find the exact hit position using a raycast
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
