@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     public Transform player;
 
     public float speed = 12f;
+    public bool Crouch = true;
 
     
     public float walkSpeed;
@@ -98,5 +99,20 @@ public class Movement : MonoBehaviour
         {
             state = MoveState.air;
         }
+    }
+    public void Crouching()
+    {
+        if (Input.GetKey("B"))
+        {
+            Crouch = true;
+        controller.height = 1;
+        }
+        else if (Input.GetKey("B"))
+        {
+            Crouch = false;
+            controller.height = 0.8f;
+          
+        }
+            
     }
 }

@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
 
     public bool isAngered;
 
+
     public NavMeshAgent _agent;
     // Start is called before the first frame update
     void Start()
@@ -39,8 +40,14 @@ public class Enemy : MonoBehaviour
     }
    
     // Update is called once per frame
-    void Update()
+    void Update()   
     {
+        if (isAngered && Distance < 0)
+        {
+            AttackPlayer();
+        }
+
+
         if (isAngered)
         {
             animator.SetBool("Aware", true);
@@ -56,11 +63,13 @@ public class Enemy : MonoBehaviour
 
         if(health <maxHealth)
         {
+
             healthBarUI.SetActive(true);
         }
         if(health <= 0)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 4f);
+            animator.SetBool("IsDead", true);
         }
         if(health > maxHealth)
         {
@@ -72,6 +81,7 @@ public class Enemy : MonoBehaviour
         if(Distance <=15)
         {
             isAngered = true;
+
         }
         if(Distance > 15f)
         {
@@ -108,7 +118,6 @@ public class Enemy : MonoBehaviour
         {
             Rigidbody rb = Instantiate(projectile, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * attackForce, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
