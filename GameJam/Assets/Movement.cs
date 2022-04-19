@@ -18,8 +18,14 @@ public class Movement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+
     Vector3 velocity;
     bool isGrounded;
+    AudioSource AS;
+    private void Start()
+    {
+        AS = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -49,6 +55,10 @@ public class Movement : MonoBehaviour
 
         }
 
+        if (controller.isGrounded && controller.velocity.magnitude > 0f && !AS.isPlaying)
+        {
+            AS.Play();
+        }
 
 
 
