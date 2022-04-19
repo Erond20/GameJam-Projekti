@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
         }
         if(health <= 0)
         {
-            Destroy(this.gameObject, 4f);
+            Destroy(this.gameObject, 1.2f);
             animator.SetBool("IsDead", true);
         }
         if(health > maxHealth)

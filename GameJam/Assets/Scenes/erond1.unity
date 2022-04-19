@@ -952,10 +952,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2220114726773014328, guid: 45e5c45ad329127459c14e3c0a0d25ac, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: df26acb6171e6104481354b726dbc887, type: 2}
     - target: {fileID: 8921135919658447402, guid: 45e5c45ad329127459c14e3c0a0d25ac, type: 3}
       propertyPath: m_Name
       value: GameObject
@@ -968,26 +964,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2048304674}
-    - target: {fileID: 8921135919658447404, guid: 45e5c45ad329127459c14e3c0a0d25ac, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 3342339765252467805, guid: cffb7439fa830024b8d9d25de73d4ca6, type: 3}
-    - target: {fileID: 8921135919658447406, guid: 45e5c45ad329127459c14e3c0a0d25ac, type: 3}
-      propertyPath: m_Height
-      value: 2.1310403
-      objectReference: {fileID: 0}
-    - target: {fileID: 8921135919658447406, guid: 45e5c45ad329127459c14e3c0a0d25ac, type: 3}
-      propertyPath: m_Radius
-      value: 0.5407541
-      objectReference: {fileID: 0}
-    - target: {fileID: 8921135919658447406, guid: 45e5c45ad329127459c14e3c0a0d25ac, type: 3}
-      propertyPath: m_Center.y
-      value: 0.9118651
-      objectReference: {fileID: 0}
-    - target: {fileID: 8921135919658447406, guid: 45e5c45ad329127459c14e3c0a0d25ac, type: 3}
-      propertyPath: m_Center.z
-      value: -0.051076874
-      objectReference: {fileID: 0}
     - target: {fileID: 8921135919658447407, guid: 45e5c45ad329127459c14e3c0a0d25ac, type: 3}
       propertyPath: m_RootOrder
       value: 7
