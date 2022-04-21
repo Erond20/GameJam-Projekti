@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("ASD");
         if (collision.gameObject.GetComponent<Enemy>())
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(bulletDamage);

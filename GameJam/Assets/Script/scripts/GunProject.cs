@@ -12,7 +12,7 @@ public class GunProject : MonoBehaviour
     public float timeBetweenShooting, spread, reloadTime, TimeBetweenShoots;
     public int magazineSize, bulletsPerTrap;
     public bool allowButtonHold;
- 
+
     //int
     int bulletLeft, BulletShot;
 
