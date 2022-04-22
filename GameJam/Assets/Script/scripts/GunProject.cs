@@ -23,7 +23,6 @@ public class GunProject : MonoBehaviour
 
     public Camera fpsCam;
     public Transform attackPoint;
-    private Animator animator;
 
     public GameObject MuzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
@@ -33,8 +32,6 @@ public class GunProject : MonoBehaviour
     private void Start()
     {
             ShootAudi = GetComponent<AudioSource>();
-        animator = GetComponentInChildren<Animator>();
-
     }
     private void Awake()
     {
@@ -57,22 +54,15 @@ public class GunProject : MonoBehaviour
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
         if (Input.GetKeyDown(KeyCode.R) && bulletLeft < magazineSize && !reloading) reload();
-             
-
-
 
         if (readyToShoot && shooting && !reloading && bulletLeft <= 0) reload();
-     
-
         //shooting
-        if (readyToShoot && shooting && !reloading && bulletLeft >0 )
+        if(readyToShoot && shooting && !reloading && bulletLeft >0 )
         {
             //set bullet shot to 0
             BulletShot = 0;
-           
-            Shoot();
-         
 
+            Shoot();
         }
     }
      
@@ -131,17 +121,12 @@ public class GunProject : MonoBehaviour
     {
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
-        animator.PlayInFixedTime("Reload",0);
-
-
 
     }
     private void ReloadFinished()
     {
         bulletLeft = magazineSize;
         reloading = false;
-
-
     }
-
+    
 }
