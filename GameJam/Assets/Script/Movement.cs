@@ -53,8 +53,8 @@ public class Movement : MonoBehaviour
             velocity.y = -2f;
         }
 
-         x = Input.GetAxis("Horizontal");
-         z = Input.GetAxis("Vertical");
+         x = Input.GetAxis("Horizontal") + Time.deltaTime;
+         z = Input.GetAxis("Vertical") + Time.deltaTime;
 
         
         
